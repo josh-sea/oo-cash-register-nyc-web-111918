@@ -9,6 +9,8 @@ describe 'CashRegister' do
 
     it 'optionally takes an employee discount on initialization' do
       expect(cash_register_with_discount.discount).to eq(20)
+      c1 = CashRegister.new(50)
+      expect(c1.discount).to eq(50)
     end
   end
 
@@ -50,7 +52,7 @@ describe 'CashRegister' do
         cash_register_with_discount.add_item("macbook air", 1000)
         expect(cash_register_with_discount.apply_discount).to eq("After the discount, the total comes to $800.")
       end
-
+      
       it 'reduces the total' do
         cash_register.total = 0
         cash_register_with_discount.add_item("macbook air", 1000)
